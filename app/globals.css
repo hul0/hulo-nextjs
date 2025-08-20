@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to cyberpunk color scheme with neon cyan, magenta, and amber on jet black */
+  --background: oklch(0.059 0 0); /* Jet Black #0F0F0F */
+  --foreground: oklch(0.961 0 0); /* Light Gray #F5F5F5 */
+  --card: oklch(0.102 0 0); /* Dark Gray #1A1A1A */
+  --card-foreground: oklch(0.961 0 0); /* Light Gray */
+  --popover: oklch(0.059 0 0); /* Jet Black */
+  --popover-foreground: oklch(0.961 0 0); /* Light Gray */
+  --primary: oklch(0.738 0.139 197.137); /* Neon Cyan #00BCD4 */
+  --primary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --secondary: oklch(0.627 0.265 303.9); /* Neon Magenta #FF4081 */
+  --secondary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --muted: oklch(0.102 0 0); /* Dark Gray */
+  --muted-foreground: oklch(0.708 0 0); /* Medium Gray */
+  --accent: oklch(0.828 0.189 84.429); /* Amber #FFCA28 */
+  --accent-foreground: oklch(0.059 0 0); /* Jet Black */
+  --destructive: oklch(0.577 0.245 27.325); /* Red for alerts */
+  --destructive-foreground: oklch(0.961 0 0); /* Light Gray */
+  --border: oklch(0.738 0.139 197.137); /* Neon Cyan borders */
+  --input: oklch(0.102 0 0); /* Dark Gray */
+  --ring: oklch(0.738 0.139 197.137 / 0.5); /* Neon Cyan ring */
+  --chart-1: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --chart-2: oklch(0.627 0.265 303.9); /* Neon Magenta */
+  --chart-3: oklch(0.828 0.189 84.429); /* Amber */
+  --chart-4: oklch(0.577 0.245 27.325); /* Red */
+  --chart-5: oklch(0.102 0 0); /* Dark Gray */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.102 0 0); /* Dark Gray */
+  --sidebar-foreground: oklch(0.961 0 0); /* Light Gray */
+  --sidebar-primary: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --sidebar-primary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --sidebar-accent: oklch(0.627 0.265 303.9); /* Neon Magenta */
+  --sidebar-accent-foreground: oklch(0.059 0 0); /* Jet Black */
+  --sidebar-border: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --sidebar-ring: oklch(0.738 0.139 197.137 / 0.5); /* Neon Cyan ring */
+}
+
+.dark {
+  /* Dark mode uses the same cyberpunk colors since the design is inherently dark */
+  --background: oklch(0.059 0 0); /* Jet Black */
+  --foreground: oklch(0.961 0 0); /* Light Gray */
+  --card: oklch(0.102 0 0); /* Dark Gray */
+  --card-foreground: oklch(0.961 0 0); /* Light Gray */
+  --popover: oklch(0.059 0 0); /* Jet Black */
+  --popover-foreground: oklch(0.961 0 0); /* Light Gray */
+  --primary: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --primary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --secondary: oklch(0.627 0.265 303.9); /* Neon Magenta */
+  --secondary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --muted: oklch(0.102 0 0); /* Dark Gray */
+  --muted-foreground: oklch(0.708 0 0); /* Medium Gray */
+  --accent: oklch(0.828 0.189 84.429); /* Amber */
+  --accent-foreground: oklch(0.059 0 0); /* Jet Black */
+  --destructive: oklch(0.577 0.245 27.325); /* Red */
+  --destructive-foreground: oklch(0.961 0 0); /* Light Gray */
+  --border: oklch(0.738 0.139 197.137); /* Neon Cyan borders */
+  --input: oklch(0.102 0 0); /* Dark Gray */
+  --ring: oklch(0.738 0.139 197.137 / 0.5); /* Neon Cyan ring */
+  --chart-1: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --chart-2: oklch(0.627 0.265 303.9); /* Neon Magenta */
+  --chart-3: oklch(0.828 0.189 84.429); /* Amber */
+  --chart-4: oklch(0.577 0.245 27.325); /* Red */
+  --chart-5: oklch(0.102 0 0); /* Dark Gray */
+  --sidebar: oklch(0.102 0 0); /* Dark Gray */
+  --sidebar-foreground: oklch(0.961 0 0); /* Light Gray */
+  --sidebar-primary: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --sidebar-primary-foreground: oklch(0.059 0 0); /* Jet Black */
+  --sidebar-accent: oklch(0.627 0.265 303.9); /* Neon Magenta */
+  --sidebar-accent-foreground: oklch(0.059 0 0); /* Jet Black */
+  --sidebar-border: oklch(0.738 0.139 197.137); /* Neon Cyan */
+  --sidebar-ring: oklch(0.738 0.139 197.137 / 0.5); /* Neon Cyan ring */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Added custom cyberpunk utilities */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    /* Added cyberpunk styling */
+    background-image: radial-gradient(circle at 25% 25%, rgba(0, 188, 212, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(255, 64, 129, 0.1) 0%, transparent 50%);
+  }
+
+  /* Added cyberpunk glow effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 20px rgba(255, 202, 40, 0.5);
+  }
+
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: rgba(0, 188, 212, 0.8);
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: rgba(255, 64, 129, 0.8);
+    z-index: -2;
+  }
+
+  @keyframes glitch-1 {
+    0%,
+    14%,
+    15%,
+    49%,
+    50%,
+    99%,
+    100% {
+      transform: translate(0);
+    }
+    15%,
+    49% {
+      transform: translate(-2px, 0);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0%,
+    20%,
+    21%,
+    62%,
+    63%,
+    99%,
+    100% {
+      transform: translate(0);
+    }
+    21%,
+    62% {
+      transform: translate(2px, 0);
+    }
+  }
+}
